@@ -1,0 +1,13 @@
+# ملفات النظام
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ملفات المحررات
+.vscode/
+.idea/
+*.swp
+
+# ملفات مضغوطة ومؤقتة
+*.zip
+*.log

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="سِنديان — متجر أثاث عصري لغرف المعيشة والنوم والمكاتب والإضاءة.">
+  <meta name="theme-color" content="#8f4424">
+  <title>سِنديان | أثاث عصري لبيتك</title>
+  <!-- خط «تجوّل» العصري من Google Fonts (عند انقطاع الإنترنت تُستعمل خطوط النظام) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- رابط تخطٍّ لمستخدمي لوحة المفاتيح وقارئات الشاشة -->
+  <a class="skip-link" href="#products">تخطَّ إلى المنتجات</a>
+
+  <!-- ===== الترويسة: الشعار والتنقل وزر السلة ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="#top" aria-label="سِنديان — الصفحة الرئيسية">
+        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 3c5 4 8 8 8 13a8 8 0 0 1-16 0c0-5 3-9 8-13z" fill="currentColor"/>
+          <path d="M16 11v18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>سِنديان</span>
+      </a>
+
+      <nav class="main-nav" aria-label="التنقل الرئيسي">
+        <ul>
+          <li><a href="#products">المنتجات</a></li>
+          <li><a href="#about">لماذا سِنديان</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <!-- زر السلة مع عدّاد المنتجات -->
+      <button class="cart-toggle" id="cartToggle" type="button"
+              aria-controls="cartDrawer" aria-expanded="false" aria-label="فتح السلة، لا منتجات فيها">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20" r="1.5" fill="currentColor"/>
+          <circle cx="17" cy="20" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="cart-toggle__count" id="cartCount" aria-hidden="true">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== القسم الافتتاحي ===== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">مجموعة الخريف الجديدة</p>
+          <h1 id="heroTitle">أثاث دافئ يحكي <span>قصة بيتك</span></h1>
+          <p class="hero__lead">قطع مختارة بعناية من الخشب الطبيعي والأقمشة الفاخرة، مصمّمة لتعيش معك سنوات طويلة.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#products">تسوّق الآن</a>
+            <a class="btn btn--ghost" href="#about">اعرف المزيد</a>
+          </div>
+        </div>
+        <figure class="hero__media">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1000&q=85&auto=format&fit=crop"
+               srcset="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&q=85&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1000&q=85&auto=format&fit=crop 1000w, https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1400&q=85&auto=format&fit=crop 1400w, https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1800&q=85&auto=format&fit=crop 1800w"
+               sizes="(min-width: 1240px) 560px, (min-width: 768px) 46vw, 100vw"
+               fetchpriority="high"
+               alt="غرفة معيشة مضيئة فيها أريكة رمادية بوسائد ملوّنة وطاولة قهوة خشبية"
+               width="900" height="700" data-fallback="living">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== قسم المنتجات: أزرار التصفية والشبكة ===== -->
+    <section class="products" id="products" aria-labelledby="productsTitle">
+      <div class="container">
+        <header class="section-head">
+          <h2 id="productsTitle">تسوّق حسب الغرفة</h2>
+          <p>اختر الفئة لتصفية المنتجات فوراً.</p>
+        </header>
+
+        <!-- تُولَّد الأزرار من script.js حسب الفئات الموجودة -->
+        <div class="filters" id="filters" role="group" aria-label="تصفية المنتجات حسب الفئة"></div>
+
+        <!-- منطقة حيّة تعلن عدد النتائج لقارئات الشاشة -->
+        <p class="results-count" id="resultsCount" aria-live="polite"></p>
+
+        <!-- تُملأ البطاقات من مصفوفة المنتجات في script.js -->
+        <ul class="product-grid" id="productGrid"></ul>
+      </div>
+    </section>
+
+    <!-- ===== لماذا نحن ===== -->
+    <section class="features" id="about" aria-labelledby="featuresTitle">
+      <div class="container">
+        <h2 id="featuresTitle" class="section-head__title">لماذا سِنديان؟</h2>
+        <ul class="features__list">
+          <li>
+            <span class="features__icon" aria-hidden="true">🚚</span>
+            <h3>توصيل مجاني</h3>
+            <p>لكل الطلبات التي تتجاوز <span dir="ltr">$500</span>.</p>
+          </li>
+          <li>
+            <span class="features__icon" aria-hidden="true">🛠️</span>
+            <h3>تركيب احترافي</h3>
+            <p>فريقنا يركّب القطع في بيتك بدون أي تكلفة إضافية.</p>
+          </li>
+          <li>
+            <span class="features__icon" aria-hidden="true">🌳</span>
+            <h3>خشب مستدام</h3>
+            <p>نختار أخشاباً من غابات تُدار بمسؤولية.</p>
+          </li>
+          <li>
+            <span class="features__icon" aria-hidden="true">↩️</span>
+            <h3>إرجاع خلال ٣٠ يوماً</h3>
+            <p>لم تعجبك القطعة؟ نستعيدها بكل سهولة.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== التذييل ===== -->
+  <footer class="site-footer" id="contact">
+    <div class="container site-footer__inner">
+      <p class="logo logo--footer">سِنديان</p>
+      <address>
+        الرياض، حي الياسمين — <a href="tel:+966500000000" dir="ltr">+966 50 000 0000</a>
+      </address>
+      <p class="site-footer__copy">© ٢٠٢٦ سِنديان. متجر تجريبي لأغراض العرض. الصور من <a href="https://unsplash.com" rel="noopener">Unsplash</a>.</p>
+    </div>
+  </footer>
+
+  <!-- ===== خلفية معتمة مشتركة للسلة والنافذة المنبثقة ===== -->
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <!-- ===== السلة الجانبية ===== -->
+  <aside class="cart" id="cartDrawer" role="dialog" aria-modal="true"
+         aria-labelledby="cartTitle" aria-hidden="true" tabindex="-1">
+    <header class="cart__head">
+      <h2 id="cartTitle">سلة التسوّق</h2>
+      <button class="icon-btn" type="button" data-close="cart" aria-label="إغلاق السلة">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <ul class="cart__items" id="cartItems"></ul>
+    <p class="cart__empty" id="cartEmpty">سلتك فارغة حالياً. أضف بعض القطع الجميلة!</p>
+
+    <footer class="cart__foot">
+      <dl class="cart__total">
+        <dt>الإجمالي</dt>
+        <dd id="cartTotal">0</dd>
+      </dl>
+      <button class="btn btn--primary btn--block" type="button" id="checkoutBtn">إتمام الطلب</button>
+    </footer>
+  </aside>
+
+  <!-- ===== نافذة المعاينة السريعة ===== -->
+  <div class="modal" id="quickView" role="dialog" aria-modal="true"
+       aria-labelledby="qvTitle" aria-describedby="qvDesc" aria-hidden="true" tabindex="-1">
+    <div class="modal__panel">
+      <button class="icon-btn modal__close" type="button" data-close="modal" aria-label="إغلاق المعاينة">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal__media">
+        <img id="qvImage" alt="" width="800" height="800">
+      </div>
+      <div class="modal__body">
+        <p class="eyebrow" id="qvCategory"></p>
+        <h2 id="qvTitle"></h2>
+        <div id="qvRating"></div>
+        <p class="price price--lg" id="qvPrice"></p>
+        <p id="qvDesc"></p>
+        <dl class="details" id="qvDetails"></dl>
+        <button class="btn btn--primary btn--block" type="button" id="qvAdd">أضف إلى السلة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- إشعار قصير بعد الإضافة إلى السلة -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
